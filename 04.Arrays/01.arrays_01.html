@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Arrays 01</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+  <div id="formu">
+    <span>Nº Elementos</span><input type="number" id="numElementos">
+    <span>Valor Mínimo</span><input type="number" id="vMin">
+    <span>Valor Máximo</span><input type="number" id="vMax">
+    <input type="button" value="CALCULAR" onclick="generarArray()">
+  </div>
+  <div id="miDiv"></div>
+
+  <script>
+    const generarArray = () => {
+      let numElementos = parseInt(document.getElementById("numElementos").value);
+      let vMax = parseInt(document.getElementById("vMax").value);
+      let vMin = parseInt(document.getElementById("vMin").value);
+      let aleatorio = 0;
+      let arrNums = [];
+      let cont = 0;
+      for (var i = 0; i <= numElementos; i++) {
+
+        aleatorio = Math.floor(Math.random() * (vMax - vMin + 1) + vMin);
+
+        if (!arrNums.includes(aleatorio)) {
+          arrNums.push(aleatorio);
+          cont++;
+
+        } else {
+          if (cont < i) {
+            i--;
+            cont++;
+          } else {
+            i++;
+            cont++;
+          }
+        }
+
+      }
+      arrNums.sort(comparar);
+      document.getElementById("miDiv").innerHTML += "";
+      document.getElementById("miDiv").innerHTML +=
+        `Array: ${arrNums} <br/> Nº Máximo: ${arrNums[arrNums.length-1]}\n Nº Mínimo: ${arrNums[0]}`;
+    }
+
+    const comparar = (a, b) => {
+      return a - b;
+    }
+  </script>
+</body>
+
+</html>

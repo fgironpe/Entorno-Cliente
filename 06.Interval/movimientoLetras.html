@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Cambio letras</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=Monoton|Press+Start+2P" rel="stylesheet">
+</head>
+<style>
+  body{
+    background-color: black;
+  }
+  #miDiv {
+    font-family: 'Press Start 2P';
+      font-size: 5em;
+      text-align: center;
+      color: greenyellow;
+  }
+</style>
+
+<body>
+  <input type="text" id="cadena">
+  <input type="button" value="Empezar" id="start" class="btn" onclick="intervaloLetra(1)">
+  <input type="button" value="Parar" id="stop" class="btn" onclick="pararLetrero()"><br />
+  <input type="number" id="sec">
+  <input type="button" value="Modificar" id="modSec" class="btn" onclick="modificarTiempo()"><br />
+  <input type="button" value="Izquierda" id="izq" class="btn" onclick="intervaloLetra(1)">
+  <input type="button" value="Derecha" id="der" class="btn" onclick="intervaloLetra(2)"><br />
+  <div id="miDiv"></div>
+  <script>
+    let contador = 0;
+    let cadena = "";
+    let segundos = document.getElementById("sec").value;
+    let posLetra = "";
+
+    let cambiarLetra = (direccion) => {
+      if (posLetra !== "") {
+        pararLetrero(posLetra);
+        contador = 0;
+      }
+    }
+
+    let direccionDerecha {
+
+    }
+    if (direccion === 1) {
+      if (contador === 0) {
+        cadena = document.getElementById("cadena").value;
+        contador++;
+      } else {
+        cadena = document.getElementById("miDiv").innerHTML;
+      }
+      ultimaLetra = cadena.charAt(cadena.length - 1);
+      cadena = ultimaLetra + cadena.substr(0, cadena.length - 1);
+    }
+
+    if (direccion === 2) {
+      if (contador === 0) {
+        cadena = document.getElementById("cadena").value;
+        contador++;
+      } else {
+        cadena = document.getElementById("miDiv").innerHTML;
+      }
+      primeraLetra = cadena.charAt(0);
+      cadena = cadena.substr(0, cadena.length - 1) + primeraLetra;
+    }
+
+    document.getElementById("miDiv").innerHTML = cadena;
+    }
+
+    let intervaloLetra = (direccion) => {
+      if (direccion === 1) {
+        posLetra = setInterval(cambiarLetra, modificarTiempo());
+      } else {
+        posLetra = setInterval(cambiarLetra, modificarTiempo());
+      }
+    }
+
+    let pararLetrero = (direccion) => {
+      clearInterval(posLetra);
+    }
+
+    let modificarTiempo = () => {
+      let segundos = document.getElementById("sec").value;
+      if (segundos === 0 || segundos === '') {
+        document.getElementById("sec").placeholder = 'Elige un número entre 1 y...';
+      } else {
+        segundos = document.getElementById("sec").value * 1000;
+      }
+      return segundos;
+    }
+
+  </script>
+</body>
+
+</html>

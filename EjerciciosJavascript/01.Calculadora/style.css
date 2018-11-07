@@ -1,0 +1,32 @@
+* {
+  margin: 0 auto;
+}
+
+body {}
+
+.calcFrame {
+  width: 60%;
+  margin: 0 auto;
+  background-color: wheat;
+  border: 3px solid blue;
+  text-align: center;
+}
+
+.texto {
+  margin: 0 auto;
+  border: 2px solid black;
+  margin: 1%;
+  width: 80%;
+  text-align: right;
+}
+
+.funcBtnFrame {
+  margin: 15 auto;
+
+}
+
+.funcBtn {
+  margin: 1%;
+  color: red;
+  width: 25%;
+}

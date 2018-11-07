@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Page Title</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    table, tr,td {
+      border: 1px solid black;
+    }
+  </style>
+</head>
+
+<body>
+  <div>
+    <input type="text" id="numInp" placeholder="Introduce un número del 1 al 10">
+    <input type="button" value="Aceptar" onclick="calcTablaMultiplicar(document.getElementById('numInp').value)">
+  </div>
+  <div id="miDiv">
+    <table id="miTabla">
+
+    </table>
+  </div>
+  <script>
+    let calcTablaMultiplicar = (num) => {
+      for (let i = 1; i <= 10; i++) {
+        document.getElementById("miTabla").innerHTML += `<tr><td>${i}</td><td>${num*i}</td></tr>`;
+      }
+    }
+  </script>
+</body>
+
+</html>

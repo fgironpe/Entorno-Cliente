@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Categorias Deporte</title>
+	<script type="text/javascript">
+		
+		var numero = parseInt(prompt("Escribe una edad de 5 a 18"));
+
+		let mostrarCategoria = (numero) => {
+			switch (numero){
+			case 5:
+			case 6:
+			case 7:
+				document.write('PRE BENJAMIN');
+			break;
+			case 8:
+			case 9:
+				document.write('BENJAMIN');
+			break;
+			case 10:
+			case 11:
+				document.write('ALEVIN');
+			break;
+			case 12:
+			case 13:
+				document.write('INFANTIL');
+			break;
+			case 14:
+			case 15:
+				document.write('CADETE');
+			break;
+			case 16:
+			case 17:
+			case 18:
+				document.write('JUVENIL');
+			break;
+			default:
+				document.write("FUERA DE CATEGORIA");
+			}
+		}
+		mostrarCategoria(numero);
+
+	</script>
+</head>
+<body>
+
+</body>
+</html>

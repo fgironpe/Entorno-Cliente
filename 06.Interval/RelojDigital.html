@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Reloj Digital</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=Monoton|Press+Start+2P" rel="stylesheet">
+  <style>
+    body {
+      background-color: black;
+      margin: 0 auto;
+    }
+    #miDiv {
+      font-family: 'Press Start 2P';
+      font-size: 5em;
+      text-align: center;
+      color: greenyellow;
+    }
+    #btnDiv {
+      text-align: center;
+    }
+    #img {
+      text-align: center;
+    }
+    .btn {
+      padding: 30px 90px;
+      color:greenyellow;
+      border: 1px solid black;
+      font-family: 'Press Start 2P';
+      font-size: 2em;
+      background-color: black;
+
+
+    }
+  </style>
+</head>
+
+<body>
+  <div id="btnDiv">
+    <input type="button" value="Arrancar" id="start" class="btn" onclick="arrancarReloj(enMarcha)">
+    <input type="button" value="Parar" id="stop" class="btn" onclick="pararReloj()">
+  </div>
+  <div id="miDiv"></div>
+  <div id="img">
+    <img src="sinv.jpg" />
+  </div>
+  <script>
+
+    let enMarcha = false;
+
+    let mostrarReloj = (enMarcha) => {
+      if (enMarcha) {
+        document.getElementById("miDiv").innerHTML += `El reloj ya está en marcha`;
+      } else {
+        let reloj = new Date();
+        let hora = reloj.getHours();
+        let min = reloj.getMinutes();
+        let sec = reloj.getSeconds();
+        enMarcha = true;
+        document.getElementById("miDiv").innerHTML = `${hora}:${min}:${sec}`;
+      }
+
+    }
+
+    let arrancarReloj = () => {
+      arrancaReloj = setInterval(mostrarReloj, 1000);
+      document.getElementById("start").disabled = true;
+      document.getElementById("stop").disabled = false;
+    }
+
+    let pararReloj = () => {
+      clearInterval(arrancaReloj);
+      document.getElementById("start").disabled = false;
+      document.getElementById("true").disabled = true;
+    }
+  </script>
+</body>
+
+</html>

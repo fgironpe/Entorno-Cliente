@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Validacion Cadenas</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+  <form>
+    Numeros:
+    <input type="text" id="numText">
+    Letras:
+    <input type="text" id="letrasText">
+    <input type="text" id="letrasNumText">
+    <input type="button" value="Limpiar" onclick="">
+    <input type="button" value="Validar" onclick="validar()">
+  </form>
+  <span id="valSpan"></span>
+  <script>
+    let valSpan = document.getElementById("valSpan");
+
+    let validar = () => {
+      let num = document.getElementById("numText").value;
+      let palabra = document.getElementById("letrasText").value;
+      let numPalabra = document.getElementById("letrasNumText").value;
+
+      if (num == '' && palabra == '' && numPalabra !== '') {
+        validarNumero();
+        validarLetra();
+      } else if (num == '' && palabra == '') {
+        document.getElementById("valSpan").innerHTML = "<h1>Campos en blanco</h1>";
+      } else if (num !== '' && palabra == '') {
+        validarNumero();
+      } else if (num === '' && palabra !== '') {
+        validarLetra();
+      } else if (num !== '' && palabra !== '') {
+        validarNumero();
+        validarLetra();
+      }
+    }
+
+    let validarNumero = () => {
+
+      let num = document.getElementById("numText").value;
+      let numLetra = document.getElementById("letrasNumText").value;
+      if (num !== '') {
+        if (isNaN(num)) {
+          document.getElementById("valSpan").innerHTML = "<h1>No es un número</h1>";
+          valSpan.style.color = "red";
+        } else {
+          document.getElementById("valSpan").innerHTML = "<h1>Es un número</h1>";
+          valSpan.style.color = "blue";
+        }
+      }
+      if (numLetra !== '') {
+        if (isNaN(numLetra)) {
+          document.getElementById("valSpan").innerHTML = "<h1>No es un número</h1>";
+          valSpan.style.color = "red";
+        } else {
+          document.getElementById("valSpan").innerHTML = "<h1>Es un número</h1>";
+          valSpan.style.color = "blue";
+        }
+      }
+
+      let validarLetra = () => {
+
+        let palabra = document.getElementById("letrasText").value;
+        let letrasValidas = 'qwertyuiopasdfghjklñzxcvbnmQWERTYUIOPASDFGHJKLÑZXCVBNMéúíóáÉÚÍÓÁçÇ ';
+        let letraOk = '';
+        let letraBad = '';
+
+        for (let i = 0; i <= palabra.length; i++) {
+          console.log(letrasValidas.indexOf(palabra.charAt(i)));
+          console.log(palabra.charAt(i));
+          if (letrasValidas.indexOf(palabra.charAt(i)) !== -1) {
+            letraOk += palabra.charAt(i) + ",";
+          } else {
+            letraBad += palabra.charAt(i) + ",";
+          }
+        }
+        document.getElementById("valSpan").innerHTML += `<span id="ok"></span>`;
+        document.getElementById("valSpan").innerHTML += `<span id="ok"><h1>Caracteres Válidos: ${letraOk}</h1></span>`;
+        document.getElementById("valSpan").innerHTML += `<span id="notOk"><h1>Caracteres No Válidos: ${letraBad}</h1></span>`;
+        let valOk = document.getElementById("ok");
+        let valNotOk = document.getElementById("notOk");
+        valOk.style.color = "blue";
+        valNotOk.style.color = "red";
+      }
+  </script>
+</body>
+
+</html>

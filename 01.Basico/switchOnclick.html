@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Switch onClick</title>
+	<script>
+		let mostrarImagen = () => {
+			var numero = parseInt(document.getElementById("texto").value);
+			switch (numero){
+				case 1:
+					document.getElementById("imagen").innerHTML='<img src="img/foto'+numero+'.jpg"/>';
+				break;
+				case 2:
+					document.getElementById("imagen").innerHTML='<img src="img/foto'+numero+'.jpg"/>';
+				break;
+				case 3:
+					document.getElementById("imagen").innerHTML='<img src="img/foto'+numero+'.jpg"/>';
+				break;
+				case 4:
+					document.getElementById("imagen").innerHTML='<img src="img/foto'+numero+'.jpg"/>';
+				break;
+			}	
+		}
+	</script>
+</head>
+<body>
+	<h1>Muestra una imagen</h1>
+	<input type="textbox" id="texto">
+	<input type="button" id="boton" value="Aceptar" onClick="mostrarImagen()">
+	<div id="imagen"></div>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Factorial</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+  <input type="number" id="numTxt" placeholder="Introduce el número que quieras factorizar" />
+  <input type="button" value="Calcular Factorial" onclick="mostrarResultado(1)">
+  <input type="button" value="Calcular Recursiva" onclick="mostrarResultado(2)">
+  <div id="miDiv"></div>
+  <script>
+    const factorialSinRecursiva = (num) => {
+      let res = 1;
+      for (let i = 1; i <= num; i++) {
+        res *= i;
+      }
+
+      return res;
+    }
+
+    const factorialConRecursiva = (num) => {
+      num = parseInt(num);
+
+      if (num <= 1) {
+        return 1;
+      } else {
+        let res = num * factorialConRecursiva(num - 1);
+        return res;
+      }
+    }
+
+    let mostrarResultado = (opt) => {
+
+      num = parseInt(document.getElementById("numTxt").value);
+
+      switch (opt) {
+        case 1:
+          res = factorialSinRecursiva(num);
+          break;
+        case 2:
+          res = factorialConRecursiva(num);
+          break;
+      }
+      document.getElementById("miDiv").innerHTML = `El factorial de ${num} es ${res}`
+    }
+  </script>
+</body>
+
+</html>

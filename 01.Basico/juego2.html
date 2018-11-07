@@ -1,0 +1,30 @@
+<!--Listado 1...300
+Cada 10 números cambio de línea
+Múltiplos de 4 => Tamaño + 4 - Color Verde
+Múiltiplos de 9 => Tamaño -2 Color Rojo-->
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Juego 2</title>
+</head>
+<body>
+	<div id="miDiv">
+		
+	</div>
+	<script type="text/javascript">
+		for(var i = 1; i<=300; i++){
+			if(i%10 == 0){
+				document.getElementById("miDiv").innerHTML += i+'<br/>';	
+			}else if(i % 9 == 0 && i % 4 == 0){
+				document.getElementById("miDiv").innerHTML += `<font size='+4' color='skyblue' face='Comic Sans MS'><strong>${i}</strong></font>`;
+			}else if (i % 4 == 0){
+				document.getElementById("miDiv").innerHTML += `<font size='+3' color='green' face='Georgia'><strong>${i}</strong></font>`;
+			}else if(i % 9 == 0){
+				document.getElementById("miDiv").innerHTML += `<font size='-1' color='gold'><strong>${i}</strong></font>`;
+				}else{
+				document.getElementById("miDiv").innerHTML += i + ' ';
+			}
+		}
+	</script>
+</body>
+</html>

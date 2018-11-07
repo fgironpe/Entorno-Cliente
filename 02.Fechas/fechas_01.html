@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div id="miDiv"></div>  
+  <script>
+    var fechaHoy = new Date();
+    var mostrarFechaHoy = document.getElementById("miDiv").innerHTML = `<p><strong>Hoy:</strong> ${fechaHoy}</p>`;
+
+    var fecha85 = new Date();
+    fecha85.setDate(fechaHoy.getDate()+85);
+    var mostrarFecha85 = document.getElementById("miDiv").innerHTML = mostrarFechaHoy + `<p><strong>+85 días:</strong> ${fecha85}</p>`;
+    
+    var fecha187 = new Date();
+    fecha187.setDate(fechaHoy.getDate()- 187);
+    var mostrarFecha187 = document.getElementById("miDiv").innerHTML = mostrarFecha85 +`<p><strong>- 187 días:</strong> ${fecha187}</p>`;
+
+    fecha85.setYear(fecha85.getFullYear()+ 2) ;
+    var mostrarFecha85v2 = document.getElementById("miDiv").innerHTML = mostrarFecha187 +`<p><strong>Fecha85 + 2 años:</strong> ${fecha85}</p>`;
+
+    fecha187.setHours(fecha187.getHours() - 24);
+    var mostrarFecha187v2 = document.getElementById("miDiv").innerHTML = mostrarFecha85v2 +`<p><strong>Fecha187 - 24 horas:</strong> ${fecha187}</p>`;
+    
+    var fechaResto = new Date();
+    fechaResto = fecha85 - fecha187;
+    var mostrarFechaResto = document.getElementById("miDiv").innerHTML = mostrarFecha187v2 +`<p><strong>fecha85 - fecha187 (Devuelve Milisegundos entre las dos fechas)):</strong> ${fechaResto}</p>`;
+
+    var fechaRestoFormat = new Date();
+    fechaRestoFormat.setTime(fecha85 - fecha187);
+    var mostrarFechaRestoFormat = document.getElementById("miDiv").innerHTML = mostrarFechaResto +`<p><strong>Anterior Formateado:</strong> ${fechaRestoFormat}</p>`;
+
+  </script>
+</body>
+</html>

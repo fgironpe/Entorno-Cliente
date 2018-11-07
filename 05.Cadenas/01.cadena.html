@@ -1,0 +1,45 @@
+<!-- Mostrar Nombre + Apellido1 + Apellido2 separados por espacios Primer caracter en mayúscula y el resto en minúscula-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Cadenas 1</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+  Nombre <input type="text" id="nom">
+  Apellido1 <input type="text" id="ape1">
+  Apellido2 <input type="text" id="ape2">
+  <input type="button" value="aceptar" onclick="mostrarCadena()">
+  <div id="miDiv"></div>
+
+  <script>
+    const convertirCadena = (cadena) => {
+
+      //cadena = cadena.toLowerCase();
+      //let cadena1 = cadena.charAt(0).toUpperCase();
+      //cadena = cadena.substring(1, cadena.length);
+      //cadena = cadena1 + cadena;
+      cadena = cadena.charAt(0).toUpperCase() + cadena.substr(1).toLowerCase();
+      return cadena;
+
+    }
+
+    const mostrarCadena = () => {
+
+      let nom = document.getElementById('nom').value;
+      let ape1 = document.getElementById('ape1').value;
+      let ape2 = document.getElementById('ape2').value;
+
+      document.getElementById("miDiv").innerHTML =
+        `<h1>${convertirCadena(nom)} ${convertirCadena(ape1)} ${convertirCadena(ape2)} </h1>`;
+
+    }
+  </script>
+</body>
+
+</html>

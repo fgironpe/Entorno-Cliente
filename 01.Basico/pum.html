@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+  <html>
+  <head>
+  	<title>PUM</title>
+  </head>
+  <body>
+  	<div id="miDiv"></div>
+  	<script type="text/javascript">
+  		var numero = 0;
+  		for (var i = 0; i <= 100; i++) {
+  			if(i%7 == 0 || i%10 == 7){
+  				numero += document.getElementById("miDiv").innerHTML += 'PUM<br/>'; 	
+  			}else{
+  				numero = document.getElementById("miDiv").innerHTML += i+',';
+  			}
+  		}
+		</script>
+  </body>
+ </html>

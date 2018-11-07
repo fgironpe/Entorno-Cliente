@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Fechas 2</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+  <input type="text" placeholder="Segundos" id="secText" />
+  <input type="text" placeholder="Minutos" id="minText" />
+  <input type="text" placeholder="Horas" id="horaText" />
+  <input type="text" placeholder="Dia" id="diaText" />
+  <input type="text" placeholder="Mes" id="mesText" />
+  <input type="text" placeholder="Año" id="anyoText" />
+  <input type="button" value="Aceptar" onclick="mostrarFecha()" />
+  <div id="miDiv"></div>
+  <script>
+    const mostrarFecha = () => {
+      let sec = document.getElementById("secText").value;
+      let min = document.getElementById("minText").value;
+      let hora = document.getElementById("horaText").value;
+      let dia = document.getElementById("diaText").value;
+      let mes = document.getElementById("mesText").value;
+      let anyo = document.getElementById("anyoText").value;
+      let fecha = new Date(anyo, mes - 1, dia, hora, min, sec);
+      document.getElementById("miDiv").innerHTML = `Cadena de caracteres: ${fecha}<br/>`;
+      document.getElementById("miDiv").innerHTML += `Día mes y año local: ${fecha.toLocaleDateString()}<br/>`;
+      document.getElementById("miDiv").innerHTML += `Hora:minuto:segundo local: ${fecha.toLocaleTimeString()}<br/>`;
+      document.getElementById("miDiv").innerHTML += `Cadena de fecha completa: ${fecha.toLocaleString()}<br/>`;
+      document.getElementById("miDiv").innerHTML +=
+        `Fechado en San Fernando de Henares en ${fecha.getDay()} a ${fecha.getDate()} de ${mostrarMes(fecha.getMonth())} de ${fecha.getFullYear()} a las ${hora} horas y ${min} minutos con ${sec} segundos.<br/>`;
+    }
+
+    const mostrarMes = (mes) => {
+      mes += 1;
+      mesString = '';
+      switch (mes) {
+        case 1:
+          mesString = 'Enero';
+          break;
+        case 2:
+          mesString = 'Febrero';
+          break;
+        case 3:
+          mesString = 'Marzo';
+          break;
+        case 4:
+          mesString = 'Abril';
+          break;
+        case 5:
+          mesString = 'Mayo';
+          break;
+        case 6:
+          mesString = 'Junio';
+          break;
+        case 7:
+          mesString = 'Julio';
+          break;
+        case 8:
+          mesString = 'Agosto';
+          break;
+        case 9:
+          mesString = 'Septiembre';
+          break;
+        case 10:
+          mesString = 'Octubre';
+          break;
+        case 11:
+          mesString = 'Noviembre';
+          break;
+        case 12:
+          mesString = 'Diciembre';
+          break;
+      }
+      return mesString;
+
+    }
+    const mostrarMes = (mes) => {
+      mes += 1;
+      mesString = '';
+      switch (mes) {
+        case 1:
+          mesString = 'Enero';
+          break;
+        case 2:
+          mesString = 'Febrero';
+          break;
+        case 3:
+          mesString = 'Marzo';
+          break;
+        case 4:
+          mesString = 'Abril';
+          break;
+        case 5:
+          mesString = 'Mayo';
+          break;
+        case 6:
+          diaString = 'Junio';
+          break;
+        case 7:
+          diaString = 'Julio';
+          break;
+      }
+      return diaString;
+
+    }
+  </script>
+</body>
+
+</html>

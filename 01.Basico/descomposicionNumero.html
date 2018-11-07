@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Descomposición de número en factores primos</title>
+</head>
+<body>
+	<input type="text" id="numText"/>
+	<input type="button" value="Aceptar" onClick="descomponerNumero()">
+	<div id="miDiv"></div>
+	<script type="text/javascript">
+
+		let descomponerNumero = () => {
+			let numero = parseInt(document.getElementById("numText").value);
+				document.getElementById("miDiv").innerHTML = '';
+				res = numero;
+				let contador = 2;
+
+				if(isNaN(numero)){
+					document.getElementById("miDiv").innerHTML = '<h1>Tienes que escribir un número</h1>';
+				}else{
+
+					do{
+						if(res % contador == 0){
+							document.getElementById("miDiv").innerHTML += res + ' | ' + contador + '<br/>';
+							if(contador === res){
+									document.getElementById("miDiv").innerHTML +=  '1 | 1';
+							}
+							res = res / contador;
+							contador = 2;
+
+						}else {
+							contador++;
+							console.log('cont: '+contador);
+							console.log('resu: '+res);
+						} 
+					}	while(res !== 1);
+				}
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Uso del confirm</title>
+	</head>
+	<body>
+		<h1>Ejemplo confirm</h1>
+		<script>
+			var acepta = confirm("Has aceptado el mensaje?");
+
+			/*if(acepta){
+				alert("El usuario ha pulsado en Aceptar");
+			} else {
+				alert("El usuario ha pulsado Cancelar");
+			}*/
+
+			acepta===true ? document.write("El usuario ha pulsado en Aceptar"):
+				document.write("El usuario ha pulsado Cancelar");
+		</script>
+	</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Window</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+  <input type="text" id="txt">
+  <input type="button" value="Aceptar" onclick="crearVentana()">
+  <input type="button" value="Cerrar" onclick="cerrarVentana()">
+  <input type="button" value="Abrir 10 ventanas" onclick="abrirVentanaAleatoria()">
+
+  <script>
+
+    let ventanaNueva;
+
+    let cerrarVentana = () => {
+      ventanaNueva.close();
+    }
+
+    let crearVentana = () => {
+      let texto = document.getElementById('txt').value;
+      ventanaNueva = window.open();
+      ventanaNueva.document.open();
+      ventanaNueva.document.write(`<h1>${texto}</h1>`);
+      ventanaNueva.document.write('<input type="button" value="Cerrar" onclick="window.opener.cerrarVentana()"/>');
+      ventanaNueva.document.close();
+    }
+
+    let abrirVentanaAleatoria = () => {
+      let texto = document.getElementById('txt').value;
+
+
+
+      for (let i = 0; i <= 10; i++) {
+        ventanaNueva = window.open("", "", "width=200,height=200");
+        let aleatorioHorizontal = Math.floor((Math.random() * 1044) + 1);
+        let aleatorioVertical = Math.floor((Math.random() * 800) + 1);
+        ventanaNueva.moveTo(aleatorioVertical, aleatorioHorizontal);
+        ventanaNueva.document.write(`<h1>${texto}</h1>`);
+        ventanaNueva.document.write('<input type="button" value="Cerrar" onclick="window.close()"/>');
+      }
+
+    }
+
+
+  </script>
+</body>
+
+</html>

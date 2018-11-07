@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Calcular Edad</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    #container {
+      margin: 0 auto;
+      text-align: center;
+      width: 80%;
+    }
+    input {
+      border: 2px solid skyblue;
+      background-color: khaki;
+      color: darkblue;
+      font-weight: bolder;
+      width: 30%;
+    }
+    #btn {
+      background-color: cadetblue;
+      margin: 1%;
+      padding: 2%;
+      width: 92%;
+    }
+    #miDiv{
+      text-align: center;
+      color: darkmagenta;
+      font-family: 'Comic Sans MS';
+      font-size: 4em;
+      font-weight: bolder;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="container">
+    <input type="text" id="diaTxt" placeholder="Día" />
+    <input type="text" id="mesTxt" placeholder="Mes" />
+    <input type="text" id="anyoTxt" placeholder="Año" /><br />
+    <input type="button" value="Aceptar" id="btn" onclick="calcularEdad(), validaFecha()" />
+  </div>
+  <div id="miDiv"></div>
+  <script>
+    const calcularEdad = () => {
+      let anyo = document.getElementById("anyoTxt").value;
+      let mes = document.getElementById("mesTxt").value;
+      let dia = document.getElementById("diaTxt").value;
+      let fecha = new Date(anyo, mes - 1, dia, 0, 0, 0);
+      let hoy = new Date();
+      let edad = hoy.getFullYear() - fecha.getFullYear();
+
+      console.log('Fecha: ' + fecha);
+      console.log('Edad1: ' + edad);
+      console.log('hoy dia ' + hoy.getDate());
+      console.log('fecha dia ' + fecha.getDate());
+
+      validaFecha(anyo, mes, dia);
+      if (fecha.getMonth() > hoy.getMonth()) {
+        edad -= 1;
+        console.log('entra en if1 ' + edad)
+      } else if (fecha.getMonth() === hoy.getMonth()) {
+        console.log('entra en elsif ' + edad)
+        if (fecha.getDate() > hoy.getDate()) {
+          console.log('if 2 ' + edad);
+          edad -= 1;
+        }
+      }
+      document.getElementById("miDiv").innerHTML = '';
+      document.getElementById("miDiv").innerHTML += 'Han pasado ' + edad + ' años';
+    }
+    const validaFecha = () => {
+      let anyo = document.getElementById("anyoTxt").value;
+      let mes = document.getElementById("mesTxt").value;
+      let dia = document.getElementById("diaTxt").value;
+      if (isNaN(anyo) || isNaN(mes) || isNaN(dia)) {
+        document.getElementById("miDiv").innerHTML += 'Inserta una fecha válida!!';
+      } else if (!anyo || !mes || !dia) {
+        document.getElementById("miDiv").innerHTML += 'Hay campos vacíos';
+      }
+    }
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Cabeceras de nivel bucle for</title>
+</head>
+<body>
+	<div>
+		<input type="text" id="texto"/>
+		<input type="button" id="boton" value="aceptar" onclick="mostrarCabecera()" />
+	</div>
+	<div id="cabecera"></div>
+	<script type="text/javascript">
+		
+
+		function mostrarCabecera() {
+			
+			var num = parseInt(document.getElementById("texto").value);
+			var cabecera = document.getElementById("cabecera").innerHTML = '<p></p>';
+
+			if (num > 6 || num < 1 || isNaN(num) ){
+					cabecera = document.getElementById("cabecera").innerHTML = '<p>Escribe un número entre 1 y 6</p>'
+			}else {
+				for (var i = 1; i <= num; i++){
+					cabecera = document.getElementById("cabecera").innerHTML += '<h'+i+'>Cabecera de nivel '+i+'</h'+i+'>';	
+				}	
+			}	
+		}
+		
+	</script>
+</body>
+</html>
